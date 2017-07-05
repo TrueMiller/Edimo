@@ -7,7 +7,7 @@ def split_command(cmd_str):
     options = _remove_options(options)
     matches = _match_keywords(cmd_str, options)
     ordered_matches = _order_matches(matches)
-    output = [command + " \\\n"]
+    output = [cmd_str[0:ordered_matches[0][0]-1] + " \\\n"]
     for i in range(0, len(ordered_matches)-1):
         output.append(_format_command_parameter(cmd_str, ordered_matches[i][0], ordered_matches[i+1][0])) 
     i += 1
